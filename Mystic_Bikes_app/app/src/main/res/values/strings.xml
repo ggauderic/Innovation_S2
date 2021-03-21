@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Mystic_Bikes_app</string>
+    <string name="mapbox_access_token">sk.eyJ1IjoiZHJpaWMiLCJhIjoiY2ttamN1c2t1MHB3cjJ2cGZ3NTJqdzA4MyJ9.V6WqIExZYveho28W7hTB2w</string>
+
+    <!--Basic user location permission -->
+    <string name="user_location_permission_explanation">This app needs location permissions in order to show its functionality.</string>
+    <string name="user_location_permission_not_granted">You didn\'t grant location permissions.</string>
+
+    <string name="start_navigation">Start navigation</string>
+
+    <!-- Location change listening -->
+    <string name="new_location">New lat: %1$s New longitude: %2$s</string>
+
 </resources>
