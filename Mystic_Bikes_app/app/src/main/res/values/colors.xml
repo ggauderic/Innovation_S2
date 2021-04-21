@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">#D7D0CE</color>
+    <color name="colorPrimaryDark">#585757</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="mapboxWhite">#FFFFFF</color>
+    <color name="mapboxBlue">#4264FB</color>
+    <color name="mapboxGrayLight">#C6D2E1</color>
+
+    <color name="mapboxPink">#ee4e8b</color>
+    <color name="mapboxYellow">#d9d838</color>
+    <color name="mapboxRed">#b43b71</color>
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -7,5 +19,4 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="button">#F44336</color>
 </resources>
