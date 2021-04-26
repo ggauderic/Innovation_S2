@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "33995974634",
+    "firebase_url": "https://auth-593c4-default-rtdb.firebaseio.com",
+    "project_id": "auth-593c4",
+    "storage_bucket": "auth-593c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33995974634:android:64948d03a00c192a1af493",
+        "android_client_info": {
+          "package_name": "com.example.authapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "33995974634-3i14eohvhdi7687ubbqiec4tgps3itcc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCejObYg94_ESKls6xgyxYr0DQ99rTR4UM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "33995974634-3i14eohvhdi7687ubbqiec4tgps3itcc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33995974634:android:80292f7424a030661af493",
+        "android_client_info": {
+          "package_name": "fr.esme.mystic_bikes_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "33995974634-3i14eohvhdi7687ubbqiec4tgps3itcc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCejObYg94_ESKls6xgyxYr0DQ99rTR4UM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "33995974634-3i14eohvhdi7687ubbqiec4tgps3itcc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
