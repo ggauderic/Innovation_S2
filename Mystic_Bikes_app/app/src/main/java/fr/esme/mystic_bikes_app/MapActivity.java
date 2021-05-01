@@ -1,11 +1,9 @@
 package fr.esme.mystic_bikes_app;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -15,7 +13,6 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -23,7 +20,6 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mapbox.android.core.location.LocationEngine;
@@ -58,7 +54,6 @@ import com.mapbox.services.android.navigation.ui.v5.NavigationLauncherOptions;
 import com.mapbox.services.android.navigation.ui.v5.route.NavigationMapRoute;
 import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -71,7 +66,7 @@ import static com.mapbox.mapboxsdk.style.layers.Property.ICON_ANCHOR_BOTTOM;
  * Use the {@link LocationComponentOptions} builder's pulseEnabled()
  * method to enable basic pulsing of the LocationComponent's pulsing circle.
  */
-public class MainActivity extends AppCompatActivity implements
+public class MapActivity extends AppCompatActivity implements
         OnMapReadyCallback, PermissionsListener {
     public static final String ID_ICON = "id-icon";
     private static final int REQUEST_CODE_AUTOCOMPLETE = 7171;
@@ -104,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements
         Mapbox.getInstance(this, getString(R.string.mapbox_access_token));
 
 // This contains the MapView in XML and needs to be called after the access token is configured.
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_map);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         startButton = findViewById(R.id.startButton);
         mapView = findViewById(R.id.mapView);
