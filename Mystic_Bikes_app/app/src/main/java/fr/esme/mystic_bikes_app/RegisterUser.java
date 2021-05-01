@@ -62,6 +62,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         editTextEmail.setOnClickListener( l -> {
             editTextEmail.setText("");
         });
+
         editTextFullName.setOnClickListener( l -> {
             editTextFullName.setText("");
         });
@@ -69,17 +70,19 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
     }
 
     public void onClick(View v) {
+        boolean registerUser = false;
         switch (v.getId()) {
             case R.id.banner:
                 startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.registerUser:
-                registerUser();
+                if(registerUser()) startActivity(new Intent(this, MainActivity.class));
                 break;
         }
+
     }
 
-    private void registerUser() {
+    private boolean registerUser() {
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
         String fullName = editTextFullName.getText().toString().trim();
@@ -87,28 +90,28 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         if (fullName.isEmpty()) {
             editTextFullName.setError("Full name is required");
             editTextFullName.requestFocus();
-            return;
+            return false;
         }
         if (email.isEmpty()) {
             editTextEmail.setError("Email is required");
             editTextEmail.requestFocus();
-            return;
+            return false;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             editTextEmail.setError("Please provide valid email!");
             editTextEmail.requestFocus();
-            return;
+            return false;
         }
 
         if (password.isEmpty()) {
             editTextPassword.setError("Password is required!");
             editTextPassword.requestFocus();
-            return;
+            return false;
         }
         if (password.length() < 6) {
             editTextPassword.setError("Min password lenght should be 6 characters!");
             editTextPassword.requestFocus();
-            return;
+            return false;
 
         }
 
@@ -147,7 +150,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                         }
                     }
                 });
-
+        return true;
 
         }
     }
