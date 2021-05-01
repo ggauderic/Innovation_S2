@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
+
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00003f"
+        mapbox:layout_constraintEnd_toEndOf="parent"
+        mapbox:mapbox_cameraZoom="10" />
+
+
+
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="34dp"
+        android:backgroundTint="@color/mapboxWhite"
+        android:enabled="false"
+        android:text="@string/start_navigation"
+        android:textColor="@color/colorPrimaryDark"
+        mapbox:layout_constraintBottom_toBottomOf="parent"
+        mapbox:layout_constraintEnd_toEndOf="parent"
+        mapbox:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#CC3F3F"
+        android:backgroundTint="#010117"
+        android:orientation="vertical"
+
+        mapbox:layout_constraintBottom_toBottomOf="@+id/mapView" />
+
+    <Button
+        android:id="@+id/SpeedometerButton"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="32dp"
+        android:text="Speed meter"
+        android:textColor="@color/mapboxWhite"
+        mapbox:layout_constraintBottom_toBottomOf="parent"
+        mapbox:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_location_search"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:layout_weight="2"
+        android:tint="@android:color/white"
+        app:backgroundTint="@color/colorPrimaryDark"
+        app:srcCompat="@android:drawable/ic_search_category_default"
+        mapbox:layout_constraintStart_toStartOf="parent"
+        mapbox:rippleColor="@color/white"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
