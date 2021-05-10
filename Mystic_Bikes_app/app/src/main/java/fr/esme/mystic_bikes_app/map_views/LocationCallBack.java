@@ -11,16 +11,19 @@ import com.mapbox.android.core.location.LocationEngineResult;
 
 import java.lang.ref.WeakReference;
 
+import fr.esme.mystic_bikes_app.R;
+import fr.esme.mystic_bikes_app.login_views.MainActivity;
+
 class LocationCallback
         implements LocationEngineCallback<LocationEngineResult> {
 
-    private final WeakReference<MainActivity> activityWeakReference;
+    private final WeakReference<fr.esme.mystic_bikes_app.login_views.MainActivity> activityWeakReference;
 
-    LocationCallback(MainActivity activity) {
+    LocationCallback(fr.esme.mystic_bikes_app.login_views.MainActivity activity) {
         this.activityWeakReference = new WeakReference<>(activity);
     }
 
-    LocationCallback(WeakReference<MainActivity> activityWeakReference) {
+    LocationCallback(WeakReference<fr.esme.mystic_bikes_app.login_views.MainActivity> activityWeakReference) {
         this.activityWeakReference = activityWeakReference;
     }
 
@@ -31,7 +34,7 @@ class LocationCallback
      */
     @Override
     public void onSuccess(LocationEngineResult result) {
-        MainActivity activity = activityWeakReference.get();
+        fr.esme.mystic_bikes_app.login_views.MainActivity activity = activityWeakReference.get();
 
         if (activity != null) {
             Location location = result.getLastLocation();
