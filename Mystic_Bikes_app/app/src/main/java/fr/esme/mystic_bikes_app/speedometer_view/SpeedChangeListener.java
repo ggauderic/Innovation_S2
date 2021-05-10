@@ -1,4 +1,4 @@
-package fr.esme.mystic_bikes_app;
+package fr.esme.mystic_bikes_app.speedometer_view;
 
 public interface SpeedChangeListener {
 

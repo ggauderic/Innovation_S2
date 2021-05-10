@@ -1,4 +1,4 @@
-package fr.esme.mystic_bikes_app;
+package fr.esme.mystic_bikes_app.map_views;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -56,6 +56,7 @@ import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute;
 
 import java.util.List;
 
+import fr.esme.mystic_bikes_app.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -66,7 +67,7 @@ import static com.mapbox.mapboxsdk.style.layers.Property.ICON_ANCHOR_BOTTOM;
  * Use the {@link LocationComponentOptions} builder's pulseEnabled()
  * method to enable basic pulsing of the LocationComponent's pulsing circle.
  */
-public class MainActivity extends AppCompatActivity implements
+public class MapActivity extends AppCompatActivity implements
         OnMapReadyCallback, PermissionsListener {
     public static final String ID_ICON = "id-icon";
     private static final int REQUEST_CODE_AUTOCOMPLETE = 7171;
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements
     private Button startButton;
     private SymbolManager symbolManager;
     private DirectionsRoute currentRoute;
-    private static final String TAG = "DirectionsActivity";
+    private static final String TAG = "MapActivity";
     private NavigationMapRoute navigationMapRoute;
     private FloatingActionButton fab_location_search;
     private Symbol previous_location_symbol;
@@ -99,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements
         Mapbox.getInstance(this, getString(R.string.mapbox_access_token));
 
 // This contains the MapView in XML and needs to be called after the access token is configured.
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_map);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         startButton = findViewById(R.id.startButton);
         mapView = findViewById(R.id.mapView);

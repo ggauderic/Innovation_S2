@@ -1,14 +1,11 @@
-package fr.esme.mystic_bikes_app;
+package fr.esme.mystic_bikes_app.login_views;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -16,21 +13,16 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.EmailAuthProvider;
+
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthRecentLoginRequiredException;
 import com.google.firebase.auth.FirebaseUser;
 
-import static android.os.SystemClock.sleep;
+import fr.esme.mystic_bikes_app.ProfileActivity;
+import fr.esme.mystic_bikes_app.R;
+
 import static fr.esme.mystic_bikes_app.Tools.waitPbar;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     private TextView register, forgotPassword;
     private EditText editTextEmail, editTextPassword;
@@ -48,11 +40,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         register = (TextView) findViewById(R.id.register);
-        register.setOnClickListener(this);
+        register.setOnClickListener(v -> {startActivity(new Intent(this, RegisterUser.class));});
         emailVerificated = true;
 
         signIn = (Button) findViewById(R.id.signIn);
-        signIn.setOnClickListener(this);
+        signIn.setOnClickListener(v -> {startActivity(new Intent(this, ProfileActivity.class));});
 
         editTextEmail = (EditText) findViewById(R.id.email);
         editTextPassword = (EditText) findViewById(R.id.password);
@@ -68,28 +60,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         forgotPassword = (TextView) findViewById(R.id.forgotPassword);
-        forgotPassword.setOnClickListener(this);
+        forgotPassword.setOnClickListener(v -> {startActivity(new Intent(this, ForgotPassword.class));});
 
 
 
     }
-    @Override
-    public void onClick(View v) {
-        switch(v.getId()){
-            case R.id.register:
-                startActivity(new Intent( this, RegisterUser.class));
-                break;
-
-            case R.id.signIn:
-                if(userLogin() && emailVerificated) startActivity(new Intent(this, ProfileActivity.class));
-                else if(!emailVerificated) editTextPassword.setText("");
-                break;
-            case R.id.forgotPassword:
-                startActivity(new Intent(this, ForgotPassword.class));
-                break;
-        }
-    }
-
     private boolean userLogin()  {
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();

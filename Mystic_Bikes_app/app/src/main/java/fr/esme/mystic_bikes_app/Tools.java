@@ -4,8 +4,10 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import androidx.annotation.Nullable;
+
 public class Tools {
-    public static void waitPbar(long timeout, ProgressBar pbar){
+    public static void waitPbar(long timeout, @Nullable ProgressBar pbar){
         Handler handler = new Handler();
 
 // Create and start a new Thread
@@ -17,7 +19,7 @@ public class Tools {
                 catch (Exception e) { } // Just catch the InterruptedException
 
                 // Now we use the Handler to post back to the main thread
-                handler.post(new Runnable() {
+               if(pbar != null) handler.post(new Runnable() {
                     public void run() {
                         // Set the View's visibility back on the main UI Thread
                         pbar.setVisibility(View.GONE);

@@ -1,4 +1,4 @@
-package fr.esme.mystic_bikes_app;
+package fr.esme.mystic_bikes_app.map_views;
 
 import android.location.Location;
 import android.util.Log;
@@ -13,17 +13,18 @@ import java.lang.ref.WeakReference;
 
 import fr.esme.mystic_bikes_app.R;
 import fr.esme.mystic_bikes_app.login_views.MainActivity;
+import fr.esme.mystic_bikes_app.map_views.MapActivity;
 
 class LocationCallback
         implements LocationEngineCallback<LocationEngineResult> {
 
-    private final WeakReference<fr.esme.mystic_bikes_app.login_views.MainActivity> activityWeakReference;
+    private final WeakReference<fr.esme.mystic_bikes_app.map_views.MapActivity> activityWeakReference;
 
-    LocationCallback(fr.esme.mystic_bikes_app.login_views.MainActivity activity) {
+    LocationCallback(MapActivity activity) {
         this.activityWeakReference = new WeakReference<>(activity);
     }
 
-    LocationCallback(WeakReference<fr.esme.mystic_bikes_app.login_views.MainActivity> activityWeakReference) {
+    LocationCallback(WeakReference<fr.esme.mystic_bikes_app.map_views.MapActivity> activityWeakReference) {
         this.activityWeakReference = activityWeakReference;
     }
 
@@ -34,7 +35,7 @@ class LocationCallback
      */
     @Override
     public void onSuccess(LocationEngineResult result) {
-        fr.esme.mystic_bikes_app.login_views.MainActivity activity = activityWeakReference.get();
+        MapActivity activity = activityWeakReference.get();
 
         if (activity != null) {
             Location location = result.getLastLocation();
@@ -63,7 +64,7 @@ class LocationCallback
     @Override
     public void onFailure(@NonNull Exception exception) {
         Log.d("LocationChangeActivity", exception.getLocalizedMessage());
-        MainActivity activity = activityWeakReference.get();
+        MapActivity activity = activityWeakReference.get();
         if (activity != null) {
             Toast.makeText(activity, exception.getLocalizedMessage(),
                     Toast.LENGTH_SHORT).show();

@@ -10,8 +10,38 @@
         android:id="@+id/textView"
         android:layout_width="301dp"
         android:layout_height="66dp"
-        android:text="Coucou"
-        tools:layout_editor_absoluteX="250dp"
-        tools:layout_editor_absoluteY="91dp" />
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/adamina"
+        android:text="Menu"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.606"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/itin_button"
+        android:layout_width="261dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/adamina"
+        android:text="Itinéraire"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/param_button"
+        android:layout_width="261dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="124dp"
+        android:fontFamily="@font/adamina"
+        android:text="Paramètre"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

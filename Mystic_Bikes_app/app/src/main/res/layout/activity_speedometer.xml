@@ -10,8 +10,8 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         android:gravity="center"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".SpeedometerMain">
-    <fr.esme.mystic_bikes_app.Speedometer
+        tools:context=".speedometer_view.SpeedometerMain">
+    <fr.esme.mystic_bikes_app.speedometer_view.Speedometer
         android:id="@+id/Speedometer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

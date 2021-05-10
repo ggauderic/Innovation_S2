@@ -1,4 +1,4 @@
-package fr.esme.mystic_bikes_app;
+package fr.esme.mystic_bikes_app.login_views;
 
 public class User {
     public String fullName, email;

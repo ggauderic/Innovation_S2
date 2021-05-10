@@ -1,8 +1,10 @@
-package fr.esme.mystic_bikes_app;
+package fr.esme.mystic_bikes_app.speedometer_view;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import fr.esme.mystic_bikes_app.R;
 
 public class SpeedometerMain extends AppCompatActivity {
 

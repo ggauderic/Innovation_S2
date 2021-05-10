@@ -1,4 +1,4 @@
-package fr.esme.mystic_bikes_app;
+package fr.esme.mystic_bikes_app.speedometer_view;
 
 
 import android.content.Context;
@@ -11,6 +11,8 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
+
+import fr.esme.mystic_bikes_app.R;
 
 public class Speedometer extends View implements SpeedChangeListener {
     private static final String TAG = Speedometer.class.getSimpleName();
