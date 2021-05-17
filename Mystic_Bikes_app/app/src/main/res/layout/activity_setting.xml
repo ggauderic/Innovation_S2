@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#313332"
+    tools:context=".SettingActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="317dp"
+        android:layout_height="147dp"
+        android:fontFamily="@font/adamina"
+        android:text="Setting"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#F4E6E6"
+        android:textSize="70sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.058" />
+
+    <FrameLayout
+        android:layout_width="670dp"
+        android:layout_height="480dp"
+        android:background="#AC5C5C"
+        android:backgroundTint="#514F4F"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.599">
+
+        <FrameLayout
+            android:layout_width="270dp"
+            android:layout_height="71dp">
+
+            <LinearLayout
+                android:id="@+id/light_1"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:background="#B6AFA9"
+                android:backgroundTint="#B6AFA9"
+                android:orientation="horizontal"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/light_2"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:background="#6E6D6B"
+                android:orientation="horizontal"
+                android:translationX="90dp"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/light_3"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:background="#B42737"
+                android:orientation="horizontal"
+                android:translationX="180dp">
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="276dp"
+            android:layout_height="71dp"
+            android:translationY="100dp">
+
+            <LinearLayout
+                android:id="@+id/dark_1"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:background="#050505"
+                android:orientation="horizontal"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dark_2"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:background="#EABD56"
+                android:orientation="horizontal"
+                android:translationX="90dp"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dark_3"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:background="#DAA420"
+                android:orientation="horizontal"
+                android:translationX="180dp">
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="58dp"
+            android:text="Light mode"
+            android:textColor="#F6EDED"
+            android:textSize="36sp"
+            android:translationX="400dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="58dp"
+            android:text="Dark mode"
+            android:textColor="#F6EDED"
+            android:textSize="36sp"
+            android:translationX="400dp"
+            android:translationY="100dp" />
+
+        <Switch
+            android:id="@+id/light_switch"
+            android:layout_width="83dp"
+            android:layout_height="58dp"
+            android:translationX="300dp"
+            tools:checked="true" />
+
+        <Switch
+            android:id="@+id/dark_switch"
+            android:layout_width="83dp"
+            android:layout_height="58dp"
+            android:translationX="300dp"
+            android:translationY="100dp"
+            tools:checked="false" />
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#302727"
+            android:text="Back"
+            android:textSize="18sp"
+            android:translationX="300dp"
+            android:translationY="400dp" />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

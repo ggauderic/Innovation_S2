@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     tools:context=".login_views.RegisterUser">
 
     <TextView
@@ -12,13 +13,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="sans-serif-black"
+        android:gravity="center_horizontal"
         android:text="Mythic-Bikes"
         android:textAlignment="center"
+        android:textColor="@color/colorSecondary"
         android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_horizontal" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/password"
@@ -26,6 +28,8 @@
         android:layout_height="98dp"
         android:layout_marginTop="268dp"
         android:hint="Password"
+        android:password="true"
+        android:textColor="@color/colorSecondary"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -38,6 +42,7 @@
         android:layout_height="82dp"
         android:layout_marginTop="56dp"
         android:hint="Full Name"
+        android:textColor="@color/colorSecondary"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +54,7 @@
         android:layout_height="94dp"
         android:layout_marginTop="168dp"
         android:hint="Email"
+        android:textColor="@color/colorSecondary"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -60,6 +66,7 @@
         android:layout_width="300dp"
         android:layout_height="86dp"
         android:layout_marginTop="376dp"
+        android:backgroundTint="#F44336"
         android:text="REGISTER USER"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"

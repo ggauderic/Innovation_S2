@@ -7,16 +7,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".login_views.MainActivity">
 
+
     <com.mapbox.mapboxsdk.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#00003f"
+        android:background="#FFFFFF"
         mapbox:layout_constraintEnd_toEndOf="parent"
-        mapbox:mapbox_cameraZoom="10" />
+        mapbox:mapbox_cameraZoom="10"
+        tools:layout_editor_absoluteY="175dp">
 
-
-
+    </com.mapbox.mapboxsdk.maps.MapView>
 
     <Button
         android:id="@+id/startButton"
@@ -44,11 +45,11 @@
         mapbox:layout_constraintBottom_toBottomOf="@+id/mapView" />
 
     <Button
-        android:id="@+id/SpeedometerButton"
+        android:id="@+id/setting_button"
         android:layout_width="100dp"
         android:layout_height="35dp"
         android:layout_marginEnd="32dp"
-        android:text="Speed meter"
+        android:text="Setting"
         android:textColor="@color/mapboxWhite"
         mapbox:layout_constraintBottom_toBottomOf="parent"
         mapbox:layout_constraintEnd_toEndOf="@+id/linearLayout2"

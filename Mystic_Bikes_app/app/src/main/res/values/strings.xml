@@ -13,4 +13,11 @@
     <string name="decrease">Decrease</string>
     <string name="increase">Increase</string>
 
+
+    <string-array name="theme_array">
+        <item>Material-Light</item>
+        <item>Dark_mode</item>
+        <item>Light_mode</item>
+    </string-array>
+
 </resources>

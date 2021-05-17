@@ -72,10 +72,10 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         boolean registerUser = false;
         switch (v.getId()) {
             case R.id.banner:
-                startActivity(new Intent(this, MapActivity.class));
+                startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.registerUser:
-                if(registerUser()) startActivity(new Intent(this, MapActivity.class));
+                if(registerUser()) startActivity(new Intent(this, MainActivity.class));
                 break;
         }
 
@@ -114,8 +114,6 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
 
         }
 
-
-        //progressBar.setVisibility(View.VISIBLE);
         //Pas deux fois la même adresse mais on peut avoir deux fullname egaux
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {

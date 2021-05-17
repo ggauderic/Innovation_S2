@@ -2,6 +2,8 @@ package fr.esme.mystic_bikes_app.map_views;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
@@ -13,6 +15,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -54,9 +57,13 @@ import com.mapbox.services.android.navigation.ui.v5.NavigationLauncherOptions;
 import com.mapbox.services.android.navigation.ui.v5.route.NavigationMapRoute;
 import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.esme.mystic_bikes_app.R;
+import fr.esme.mystic_bikes_app.SettingActivity;
+import fr.esme.mystic_bikes_app.Tools;
+import fr.esme.mystic_bikes_app.login_views.ForgotPassword;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -84,12 +91,13 @@ public class MapActivity extends AppCompatActivity implements
     private NavigationMapRoute navigationMapRoute;
     private FloatingActionButton fab_location_search;
     private Symbol previous_location_symbol;
-    private Button speedmeterView_button;
+    private Button setting_button;
     private LocationCallback callback = new LocationCallback(this);
 
     private LocationEngine locationEngine;
     private long DEFAULT_INTERVAL_IN_MILLISECONDS = 1000L;
     private long DEFAULT_MAX_WAIT_TIME = DEFAULT_INTERVAL_IN_MILLISECONDS * 5;
+    private String mapStyle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,21 +106,39 @@ public class MapActivity extends AppCompatActivity implements
 // Mapbox access token is configured here. This needs to be called either in your application
 // object or in the same activity which contains the mapview.
         Mapbox.getInstance(this, getString(R.string.mapbox_access_token));
+        this.setTheme(Tools.getTheme());
 
 // This contains the MapView in XML and needs to be called after the access token is configured.
         setContentView(R.layout.activity_map);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        startButton = findViewById(R.id.startButton);
+        startButton = (Button) findViewById(R.id.startButton);
+        setting_button = (Button) findViewById(R.id.setting_button);
+        setting_button.setOnClickListener(v -> {startActivity(new Intent(this, SettingActivity.class));});
         mapView = findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
+        //setting();
 
+    }
+
+    private void setting() {
+        String mode;
+        ArrayList<View> v1 = new ArrayList<>();
+        ArrayList<View> v2 = new ArrayList<>();
+        ArrayList<View> v3 = new ArrayList<>();
+        if(Tools.getMode() == "dark")
+        {mapStyle = Style.DARK;}
+        else{ mapStyle = Style.MAPBOX_STREETS;}
+
+        v1.add(findViewById(R.id.mapView));
+        v2.add(findViewById(R.id.startButton));
+        Tools.setBackgroundColor(v1, v2, v3);
     }
 
     @Override
     public void onMapReady(@NonNull final MapboxMap mapboxMap) {
         this.mapboxMap = mapboxMap;
-        mapboxMap.setStyle(getStyleBuilder(Style.MAPBOX_STREETS), style -> {
+        mapboxMap.setStyle(getStyleBuilder(mapStyle), style -> {
             enableLocationComponent(style);
             symbolManager = new SymbolManager(mapView, mapboxMap, style);
             symbolManager.setIconAllowOverlap(true);
@@ -192,6 +218,7 @@ public class MapActivity extends AppCompatActivity implements
         startButton.setEnabled(true);
         getRoute(originPoint, destinationPoint);
 
+
         return true;
     }
 
@@ -201,6 +228,7 @@ public class MapActivity extends AppCompatActivity implements
                 .destination(destination)
                 .build()
                 .getRoute(new Callback<DirectionsResponse>() {
+
                     @Override
                     public void onResponse(Call<DirectionsResponse> call, Response<DirectionsResponse> response) {
                         //  HTTP générique info sur la rép
@@ -226,10 +254,23 @@ public class MapActivity extends AppCompatActivity implements
                     @Override
                     public void onFailure(Call<DirectionsResponse> call, Throwable t) {
                         Log.e(TAG, "Error: " + t.getMessage());
+                        //showDialog("No route find", "Information");
 
                     }
                 });
 
+    }
+
+    private void showDialog(String message, String title) {
+        new AlertDialog.Builder(this)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).setNegativeButton("No", null).show();
     }
 
     private Style.Builder getStyleBuilder(@NonNull String styleUrl) {
@@ -263,12 +304,6 @@ public class MapActivity extends AppCompatActivity implements
         if (PermissionsManager.areLocationPermissionsGranted(this)) {
             initLocationEngine();
 
-// Enable the most basic pulsing styling by ONLY using
-// the `.pulseEnabled()` method
-            //   LocationComponentOptions customLocationComponentOptions = LocationComponentOptions.builder(this)
-            //   .pulseEnabled(true)
-            //    .build();
-
 // Get an instance of the component
             locationComponent = mapboxMap.getLocationComponent();
 
@@ -284,11 +319,6 @@ public class MapActivity extends AppCompatActivity implements
 
 
 // Activate with options
-          /*  locationComponent.activateLocationComponent(
-                    LocationComponentActivationOptions.builder(this, loadedMapStyle)
-                            .locationComponentOptions(customLocationComponentOptions)
-                            .build());*/
-
 // Enable to make component visible
             locationComponent.setLocationComponentEnabled(true);
 
@@ -298,8 +328,6 @@ public class MapActivity extends AppCompatActivity implements
 // Set the component's render mode
             locationComponent.setRenderMode(RenderMode.COMPASS);
 
-           //initLocationEngine();
-
 
         } else {
             permissionsManager = new PermissionsManager(this);
@@ -307,9 +335,10 @@ public class MapActivity extends AppCompatActivity implements
         }
     }
 
+
     @SuppressLint("MissingPermission")
     private void initLocationEngine() {
-        locationEngine = LocationEngineProvider.getBestLocationEngine(this);
+      locationEngine = LocationEngineProvider.getBestLocationEngine(this);
 
         LocationEngineRequest request = new LocationEngineRequest.Builder(DEFAULT_INTERVAL_IN_MILLISECONDS)
                 .setPriority(LocationEngineRequest.PRIORITY_BALANCED_POWER_ACCURACY)
