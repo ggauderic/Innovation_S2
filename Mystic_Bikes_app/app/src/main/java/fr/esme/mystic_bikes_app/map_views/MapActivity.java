@@ -118,6 +118,7 @@ public class MapActivity extends AppCompatActivity implements
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
         //setting();
+        mapStyle = Style.MAPBOX_STREETS;
 
     }
 
